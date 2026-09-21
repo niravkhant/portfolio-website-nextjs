@@ -1,0 +1,228 @@
+@use "../../styles/mixins" as *;
+
+.section {
+  @include section-padding;
+}
+
+.shell {
+  max-width: 56rem;
+  margin-inline: auto;
+}
+
+.tabList {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  padding: 0.875rem 1.25rem 0;
+  border-bottom: 1px solid rgba(241, 217, 138, 0.1);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.38) 100%
+  );
+
+  [data-theme="dark"] & {
+    background: linear-gradient(180deg, #060504 0%, #0a0806 100%);
+  }
+
+  [data-theme="light"] &,
+  :root:not([data-theme]) & {
+    border-bottom-color: rgba(126, 99, 42, 0.14);
+    background: linear-gradient(
+      180deg,
+      rgba(18, 16, 11, 0.08) 0%,
+      rgba(18, 16, 11, 0.04) 100%
+    );
+  }
+}
+
+.tab,
+.tabActive {
+  position: relative;
+  padding: 0.625rem 0.35rem 0.875rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+
+  @include reduced-motion {
+    transition: none;
+  }
+
+  &:hover {
+    color: var(--text-secondary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+    border-radius: 0.25rem;
+  }
+}
+
+.tabActive {
+  color: var(--text-primary);
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--gold-light) 35%,
+      var(--gold) 50%,
+      var(--gold-light) 65%,
+      transparent
+    );
+    box-shadow: 0 0 12px rgba(241, 217, 138, 0.45);
+  }
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-glass);
+  background: radial-gradient(
+      130% 85% at 50% -15%,
+      var(--card-glow-top),
+      transparent 58%
+    ),
+    linear-gradient(165deg, var(--card-surface) 0%, var(--bg-card) 100%);
+  box-shadow: var(--shadow-card);
+
+  @include card-glass-highlight;
+}
+
+.panelBody {
+  position: relative;
+  z-index: 1;
+}
+
+.chrome {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.traffic {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.dotRed,
+.dotYellow,
+.dotGreen {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.dotRed {
+  background: #ff5f57;
+}
+
+.dotYellow {
+  background: #febc2e;
+}
+
+.dotGreen {
+  background: #28c840;
+}
+
+.filePath {
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.25rem, 3vw, 1.5rem) clamp(1.15rem, 3vw, 1.5rem);
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  font-size: clamp(0.75rem, 1.5vw, 0.8125rem);
+  line-height: 1.65;
+}
+
+.contentHeading {
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+
+.rule {
+  margin: 0 0 0.75rem;
+  color: var(--text-muted);
+  opacity: 0.55;
+  letter-spacing: 0.04em;
+}
+
+.lines {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: 0.35rem;
+    color: var(--text-primary);
+
+    &::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.closing {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.actionBar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  padding: 0.875rem 1rem 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.prompt {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}

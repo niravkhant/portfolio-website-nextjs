@@ -1,0 +1,42 @@
+@use "../../../styles/mixins" as *;
+
+.headingWrap {
+  margin-bottom: var(--section-heading-gap);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 1rem;
+  max-width: 38rem;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.7;
+}
+
+.center {
+  text-align: center;
+
+  .subtitle {
+    margin-inline: auto;
+  }
+}

@@ -1,0 +1,90 @@
+[data-theme="light"],
+:root:not([data-theme]) {
+  --bg: #fffdfa;
+  --bg-secondary: #f7f3eb;
+
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-solid: #ffffff;
+
+  --text-primary: #12100b;
+  --text-secondary: #433a2b;
+  --text-muted: #7d705b;
+
+  --border: rgba(126, 99, 42, 0.18);
+  --border-strong: rgba(126, 99, 42, 0.32);
+  --border-glass: rgba(184, 137, 49, 0.24);
+
+  --gold: #b88931;
+  --gold-light: #9b6a16;
+  --gold-dark: #6f4b12;
+
+  --gold-ambient: rgba(184, 137, 49, 0.1);
+
+  --card-radius: 1.75rem;
+  --card-radius-tight: 1.125rem;
+  --card-radius-inner: 0.875rem;
+
+  --card-glow-top: rgba(184, 137, 49, 0.14);
+  --card-surface: rgba(255, 255, 255, 0.96);
+
+  --shadow-card: 0 4px 24px rgba(18, 16, 11, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --shadow-card-hover: 0 20px 48px rgba(18, 16, 11, 0.12),
+    0 0 0 1px rgba(184, 137, 49, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  --header-bg: rgba(255, 253, 250, 0.72);
+  --header-bg-top: rgba(255, 253, 250, 0.55);
+  --header-bg-scrolled: rgba(255, 253, 250, 0.94);
+  --section-padding-y: clamp(2.5rem, 5vw, 4rem);
+  --section-heading-gap: clamp(1.25rem, 3vw, 1.75rem);
+  --overlay-scrim: rgba(4, 3, 2, 0.8);
+  --overlay-blur: 12px;
+  --glow-hero: rgba(184, 137, 49, 0.14);
+  --glow-radial: rgba(199, 164, 93, 0.12);
+}
+
+[data-theme="dark"] {
+  --bg: #040302;
+  --bg-secondary: #0a0806;
+
+  --bg-card: rgba(17, 14, 10, 0.78);
+  --bg-card-solid: #11100d;
+
+  --text-primary: #f7efdc;
+  --text-secondary: #c7b894;
+  --text-muted: #867757;
+
+  --border: rgba(241, 217, 138, 0.1);
+  --border-strong: rgba(241, 217, 138, 0.2);
+  --border-glass: rgba(241, 217, 138, 0.12);
+
+  --gold: #c7a45d;
+  --gold-light: #f1d98a;
+  --gold-dark: #8d6428;
+
+  --gold-ambient: rgba(199, 164, 93, 0.08);
+
+  --card-radius: 1.75rem;
+  --card-radius-tight: 1.125rem;
+  --card-radius-inner: 0.875rem;
+
+  --card-glow-top: rgba(199, 164, 93, 0.14);
+  --card-surface: #141210;
+
+  --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(241, 217, 138, 0.06);
+  --shadow-card-hover: 0 24px 56px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(199, 164, 93, 0.28),
+    inset 0 1px 0 rgba(241, 217, 138, 0.1);
+
+  --header-bg: rgba(4, 3, 2, 0.75);
+  --header-bg-top: rgba(4, 3, 2, 0.4);
+  --header-bg-scrolled: rgba(10, 8, 6, 0.88);
+  --section-padding-y: clamp(2.5rem, 5vw, 4rem);
+  --section-heading-gap: clamp(1.25rem, 3vw, 1.75rem);
+  --overlay-scrim: rgba(4, 3, 2, 0.8);
+  --overlay-blur: 12px;
+  --glow-hero: rgba(199, 164, 93, 0.1);
+  --glow-radial: rgba(199, 164, 93, 0.08);
+}

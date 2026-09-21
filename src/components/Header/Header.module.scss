@@ -1,0 +1,211 @@
+@use "../../styles/mixins" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.875rem clamp(0.75rem, 3vw, 1.5rem);
+  pointer-events: none;
+}
+
+.inner {
+  pointer-events: auto;
+  position: relative;
+  max-width: 56rem;
+  margin-inline: auto;
+  border-radius: 9999px;
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.glass {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+  background-color: rgba(4, 3, 2, 0.4);
+  background: var(--header-bg-top);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
+  transition:
+    background 0.3s ease,
+    -webkit-backdrop-filter 0.3s ease,
+    backdrop-filter 0.3s ease;
+
+  @include reduced-motion {
+    transition: background 0.3s ease;
+  }
+}
+
+.innerContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.625rem 0.875rem 0.625rem 1.125rem;
+
+  @include mdmin {
+    padding: 0.75rem 1rem 0.75rem 1.25rem;
+  }
+}
+
+.scrolled .inner {
+  border-color: var(--border-strong);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.scrolled .glass {
+  background-color: rgba(10, 8, 6, 0.88);
+  background: var(--header-bg-scrolled);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  backdrop-filter: blur(40px) saturate(180%);
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+
+  @include lgmin {
+    display: flex;
+  }
+}
+
+.navLink {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 9999px;
+  transition: color 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    color: var(--text-primary);
+    background: var(--gold-ambient);
+  }
+
+  &.active {
+    color: var(--gold-light);
+    font-weight: 600;
+    background: transparent;
+  }
+}
+
+.scrolled .navLink.active {
+  color: var(--text-primary);
+  background: var(--gold-ambient);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta {
+  display: none;
+
+  @include mdmin {
+    display: inline-flex;
+  }
+}
+
+.chipGhost {
+  background: transparent !important;
+  border-color: var(--border-glass) !important;
+}
+
+.menuBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+
+  @include lgmin {
+    display: none;
+  }
+}
+
+.mobileNav {
+  pointer-events: auto;
+  position: fixed;
+  inset: 4.75rem 1rem auto;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  padding: 1rem;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-glass);
+  background-color: rgba(17, 14, 10, 0.85);
+  background: var(--bg-card);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  box-shadow: var(--shadow-card-hover);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+
+  @include lgmin {
+    display: none;
+  }
+}
+
+.mobileOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobileLink {
+  display: block;
+  padding: 0.875rem 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--card-radius-tight);
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: var(--gold-ambient);
+    color: var(--text-primary);
+  }
+}
+
+.mobileCta {
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 3, 2, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+
+  @include lgmin {
+    display: none;
+  }
+}
+
+.overlayOpen {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}

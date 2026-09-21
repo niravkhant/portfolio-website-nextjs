@@ -1,0 +1,123 @@
+@use "../../styles/mixins" as *;
+
+.section {
+  @include section-padding;
+}
+
+.sliderWrap {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0.5rem;
+}
+
+.slider {
+  width: 100%;
+}
+
+.sliderSkeleton {
+  width: 100%;
+  min-height: 22rem;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-glass);
+  background: var(--bg-card);
+}
+
+.card {
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+
+  &:hover {
+    @include card-glass-hover;
+
+    @include reduced-motion {
+      transform: none;
+    }
+  }
+}
+
+.preview {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--card-radius) var(--card-radius) 0 0;
+
+  @include reduced-motion {
+    .card:hover & .previewInner {
+      transform: none;
+    }
+  }
+}
+
+.previewInner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s ease;
+}
+
+.card:hover .previewInner {
+  transform: scale(1.04);
+}
+
+.body {
+  padding: clamp(1.15rem, 2.5vw, 1.35rem) clamp(1.15rem, 2.5vw, 1.5rem)
+    clamp(1.25rem, 2.5vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--text-primary);
+}
+
+.description {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  margin: 0 0 1rem;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: var(--gold-ambient);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: auto;
+}

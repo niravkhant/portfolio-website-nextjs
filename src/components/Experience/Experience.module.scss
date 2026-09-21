@@ -1,0 +1,94 @@
+@use "../../styles/mixins" as *;
+
+.section {
+  @include section-padding;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @include lgmin {
+    --timeline-axis: 0.625rem;
+    --timeline-gap: 1.75rem;
+    padding-left: calc(var(--timeline-axis) + var(--timeline-gap));
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: var(--timeline-axis);
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 1px;
+      transform: translateX(-50%);
+      background: linear-gradient(
+        180deg,
+        transparent,
+        var(--border-strong) 8%,
+        var(--border-strong) 92%,
+        transparent
+      );
+    }
+  }
+}
+
+.item {
+  position: relative;
+
+  @include lgmin {
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(-1 * var(--timeline-gap));
+      top: 1.5rem;
+      width: 0.625rem;
+      height: 0.625rem;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      box-shadow: 0 0 0 4px var(--gold-ambient);
+    }
+  }
+}
+
+.company {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+
+.jobTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--text-primary);
+}
+
+.duration {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.875rem;
+}
+
+.description {
+  color: var(--text-secondary);
+  margin: 0 0 1rem;
+  line-height: 1.65;
+}
+
+.techLabel {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.techList {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}

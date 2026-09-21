@@ -1,0 +1,119 @@
+@use "../../../styles/mixins" as *;
+
+.root {
+  position: relative;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+
+  @include md {
+    margin-bottom: 1rem;
+  }
+}
+
+.headerLeft {
+  margin-right: auto;
+}
+
+.carouselHost {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0.75rem 0 0.35rem;
+  margin: -0.75rem 0 -0.35rem;
+
+  :global(.swiper-wrapper) {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  :global(.swiper-slide) {
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  :global(.swiper-pagination) {
+    position: relative;
+    margin-top: 1.75rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
+.paginationBar {
+  position: relative;
+  margin-top: 1.75rem;
+
+  :global(.swiper-pagination-bullet) {
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0 !important;
+    opacity: 1;
+    background: var(--border);
+    transition: transform 0.25s ease, background 0.25s ease, width 0.25s ease;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    width: 1.375rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold-light) 55%, var(--gold));
+  }
+}
+
+.slide {
+  height: auto;
+}
+
+.navGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-glass);
+  background: radial-gradient(
+      120% 80% at 50% 0%,
+      var(--card-glow-top),
+      transparent 55%
+    ),
+    linear-gradient(165deg, var(--card-surface) 0%, var(--bg-card) 100%);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  &:hover:not(:disabled) {
+    border-color: var(--border-strong);
+    color: var(--gold);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-1px);
+  }
+
+  &:disabled,
+  &:global(.swiper-button-disabled),
+  &:global(.swiper-button-lock) {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+    pointer-events: none;
+  }
+
+  @include reduced-motion {
+    transition: border-color 0.25s ease, color 0.25s ease;
+  }
+}

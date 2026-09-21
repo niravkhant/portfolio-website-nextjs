@@ -1,0 +1,99 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.92;
+  }
+
+  &.md {
+    .mark {
+      width: 2rem;
+      height: 1.75rem;
+      padding: 0 0.2rem;
+      border-radius: 0.5rem;
+    }
+
+    .monogram {
+      font-size: 0.6875rem;
+    }
+
+    .wordmark {
+      font-size: 1rem;
+    }
+  }
+
+  &.sm {
+    .mark {
+      width: 1.875rem;
+      height: 1.625rem;
+      padding: 0 0.15rem;
+      border-radius: 0.4375rem;
+    }
+
+    .monogram {
+      font-size: 0.625rem;
+    }
+
+    .wordmark {
+      font-size: 1.0625rem;
+    }
+  }
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 0.5625rem;
+  border: 1px solid var(--border-glass);
+  background: linear-gradient(
+    145deg,
+    rgba(199, 164, 93, 0.16),
+    rgba(199, 164, 93, 0.04) 55%,
+    transparent
+  );
+  box-shadow:
+    0 0 0 1px rgba(241, 217, 138, 0.06) inset,
+    0 4px 14px rgba(0, 0, 0, 0.12);
+  color: var(--gold-light);
+}
+
+.monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  font-weight: 700;
+}
+
+.brace {
+  color: var(--gold);
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.letter {
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 800;
+  color: var(--gold-light);
+  margin: 0 -0.02em;
+}
+
+.wordmark {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.dot {
+  color: var(--gold);
+}

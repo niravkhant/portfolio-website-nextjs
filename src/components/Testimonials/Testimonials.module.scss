@@ -1,0 +1,91 @@
+@use "../../styles/mixins" as *;
+
+.section {
+  @include section-padding;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  @include mdmin {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.stars {
+  display: flex;
+  gap: 0.2rem;
+  color: var(--gold);
+}
+
+.star {
+  width: 0.875rem;
+  height: 0.875rem;
+  flex-shrink: 0;
+}
+
+.quote {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  font-style: italic;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--gold-light);
+  border: 1px solid var(--border-glass);
+  background: linear-gradient(
+    145deg,
+    rgba(199, 164, 93, 0.18),
+    rgba(199, 164, 93, 0.06)
+  );
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.name {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.role {
+  font-size: 0.8125rem;
+  color: var(--gold);
+  margin: 0;
+  opacity: 0.85;
+}

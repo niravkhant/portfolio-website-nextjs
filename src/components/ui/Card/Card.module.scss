@@ -1,0 +1,67 @@
+@use "../../../styles/mixins" as *;
+
+.card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-glass);
+  background: radial-gradient(
+      130% 85% at 50% -15%,
+      var(--card-glow-top),
+      transparent 58%
+    ),
+    linear-gradient(165deg, var(--card-surface) 0%, var(--bg-card) 100%);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+
+  @include card-glass-highlight;
+  @include card-glass-content-layer;
+
+  @include reduced-motion {
+    transition: border-color 0.28s ease;
+
+    &::before,
+    &::after {
+      transition: none;
+    }
+  }
+}
+
+.interactive {
+  cursor: default;
+
+  &:hover {
+    @include card-glass-hover;
+
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      opacity: 0.55;
+    }
+
+    @include reduced-motion {
+      transform: none;
+    }
+  }
+}
+
+.tight {
+  border-radius: var(--card-radius-tight);
+}
+
+.paddingMd {
+  padding: 1.5rem;
+}
+
+.paddingLg {
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.paddingXl {
+  padding: clamp(1.75rem, 3.5vw, 2.25rem);
+}

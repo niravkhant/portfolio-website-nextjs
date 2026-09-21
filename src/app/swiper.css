@@ -1,0 +1,17 @@
+/* Swiper layout helpers (loaded after bundle in layout.js) */
+.swiper-horizontal > .swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.swiper-slide {
+  flex-shrink: 0 !important;
+  height: auto !important;
+  box-sizing: border-box;
+}
+
+.swiper {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}

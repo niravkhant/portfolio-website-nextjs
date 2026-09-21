@@ -1,0 +1,87 @@
+@use "../../../styles/mixins" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1;
+  padding: 0.875rem 1.625rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease,
+    background 0.25s ease, opacity 0.25s ease;
+
+  @include reduced-motion {
+    transition: none;
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+
+  &:not(:disabled):hover {
+    transform: translateY(-2px);
+  }
+
+  &:not(:disabled):active {
+    transform: translateY(0);
+  }
+}
+
+.primary {
+  color: #080604;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.26),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #8d6428, #f1d98a 55%, #b2863b);
+  box-shadow: 0 4px 20px rgba(141, 100, 40, 0.25);
+
+  &:not(:disabled):hover {
+    box-shadow: 0 8px 28px rgba(141, 100, 40, 0.35);
+  }
+}
+
+.outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+
+  &:not(:disabled):hover {
+    border-color: var(--gold);
+    background: var(--gold-ambient);
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  padding-inline: 1rem;
+
+  &:not(:disabled):hover {
+    color: var(--gold);
+    background: var(--gold-ambient);
+  }
+}
+
+.sm {
+  padding: 0.625rem 1.125rem;
+  font-size: 0.875rem;
+}
+
+.lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.fullWidth {
+  width: 100%;
+}

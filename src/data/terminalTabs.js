@@ -1,0 +1,47 @@
+export const terminalTabs = [
+  {
+    id: "profile",
+    label: "Profile",
+    fileLabel: "nirav-khant.md / portfolio",
+    heading: "Frontend Developer — Snapshot",
+    lines: [
+      "Crafting fast, accessible interfaces for the web",
+      "Strength: component architecture & UI polish",
+      "Experience: product teams & client projects",
+      "Values: clarity, performance, maintainability",
+    ],
+    closing: "Ahmedabad, India · Open to remote & onsite roles",
+    prompt: "Want the full story?",
+    cta: { label: "Read About →", href: "#about" },
+  },
+  {
+    id: "stack",
+    label: "Tech Stack",
+    fileLabel: "stack.json / skills",
+    heading: "Core Stack — Frontend Focus",
+    lines: [
+      "Frameworks: Next.js, React.js, JavaScript (ES6+)",
+      "Styling: Tailwind CSS, SCSS modules, responsive layout",
+      "Quality: accessibility, Core Web Vitals, clean Git flow",
+      "Also: Node.js, REST APIs, MongoDB basics",
+    ],
+    closing: "Always learning — design systems & modern tooling",
+    prompt: "See everything I use?",
+    cta: { label: "View Skills →", href: "#skills" },
+  },
+  {
+    id: "workflow",
+    label: "Workflow",
+    fileLabel: "workflow.sh / process",
+    heading: "How I Deliver Projects",
+    lines: [
+      "Discover: goals, users, and success metrics",
+      "Build: reusable components & scalable structure",
+      "Refine: reviews, testing, and performance passes",
+      "Ship: documented handoff & iteration support",
+    ],
+    closing: "Next step: explore recent work in Projects",
+    prompt: "Ready to collaborate?",
+    cta: { label: "Contact Me →", href: "#contact" },
+  },
+];
