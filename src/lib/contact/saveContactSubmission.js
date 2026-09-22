@@ -53,8 +53,6 @@ async function readAllSubmissions() {
 }
 
 export async function saveContactSubmission(payload) {
-  await fs.mkdir(path.dirname(SUBMISSIONS_FILE), { recursive: true });
-
   const id = `${Date.now()}-${randomUUID().slice(0, 8)}`;
   const record = {
     id,
@@ -62,14 +60,20 @@ export async function saveContactSubmission(payload) {
     ...payload,
   };
 
-  const submissions = await readAllSubmissions();
-  submissions.push(record);
+  try {
+    await fs.mkdir(path.dirname(SUBMISSIONS_FILE), { recursive: true });
 
-  await fs.writeFile(
-    SUBMISSIONS_FILE,
-    `${JSON.stringify(submissions, null, 2)}\n`,
-    "utf8"
-  );
+    const submissions = await readAllSubmissions();
+    submissions.push(record);
+
+    await fs.writeFile(
+      SUBMISSIONS_FILE,
+      `${JSON.stringify(submissions, null, 2)}\n`,
+      "utf8"
+    );
+  } catch (error) {
+    console.error("Contact submission persistence failed:", error);
+  }
 
   return record;
 }

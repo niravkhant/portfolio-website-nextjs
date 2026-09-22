@@ -1,6 +1,7 @@
 import Card from "@/components/ui/Card/Card";
 import Button from "@/components/ui/Button/Button";
 import styles from "./Projects.module.scss";
+import Image from "next/image";
 
 export default function ProjectCard({ project }) {
   return (
@@ -11,7 +12,9 @@ export default function ProjectCard({ project }) {
           style={{ background: project.gradient }}
           role="img"
           aria-label={`${project.title} preview`}
-        />
+        >
+          {project.image ? <Image src={project.image} alt={`${project.title} preview`} fill className={styles.previewImage} /> : null}
+        </div>
       </div>
       <div className={styles.body}>
         <p className={styles.category}>{project.category}</p>

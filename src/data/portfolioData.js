@@ -99,13 +99,14 @@ export const projects = [
   },
   {
     featured: false,
-    category: "Web App",
-    title: "ShopFlow Commerce",
+    category: "E-Commerce Web App",
+    title: "Omni Food Clone",
     description:
-      "Headless e-commerce storefront with optimized checkout flow, product filtering, and mobile-first product discovery.",
+      "Headless e-commerce food vapp with optimized checkout flow, product filtering, and mobile-first product discovery.",
     tags: ["Next.js", "React", "Tailwind", "Stripe"],
-    liveUrl: "#",
+    liveUrl: "https://omnifoodclone.netlify.app",
     githubUrl: "#",
+    image : "/assets/images/omnifoodclone.webp",
     gradient: "linear-gradient(135deg, #0a0806 0%, #2a2218 45%, #b88931 100%)",
   },
   {
