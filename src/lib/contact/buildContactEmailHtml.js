@@ -1,8 +1,9 @@
 import fs from "fs";
+import path from "path";
 import { escapeHtml } from "./escapeHtml";
 
 const emailTemplate = fs.readFileSync(
-  new URL("./contactEmailTemplate.html", import.meta.url),
+  path.join(process.cwd(), "public", "contactEmailTemplate.html"),
   "utf8"
 );
 
