@@ -32,3 +32,7 @@ Light/dark mode uses CSS variables in `src/styles/_theme.scss`, persisted in `lo
 npm run build
 npm start
 ```
+
+## Contact Me
+
+E-mail : nkhant2@gmail.com
